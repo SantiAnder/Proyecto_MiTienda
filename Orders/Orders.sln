@@ -5,11 +5,11 @@ VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orders_BackEnd", "Orders_BackEnd\Orders_BackEnd.csproj", "{7EDDDD41-8B55-441B-844B-F9766AB6D498}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orders_FrontEnd", "Orders_FrontEnd\Orders_FrontEnd.csproj", "{505F2473-7E11-42F9-AE33-D7EE294588FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orders_FrontEnd", "Orders_FrontEnd\Orders_FrontEnd.csproj", "{505F2473-7E11-42F9-AE33-D7EE294588FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orders_Shared", "Orders_Shared\Orders_Shared.csproj", "{B857E06A-1DF8-4D93-ABDD-2595AA4BE458}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orders_Shared", "Orders_Shared\Orders_Shared.csproj", "{B857E06A-1DF8-4D93-ABDD-2595AA4BE458}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orders_Tests", "Orders_Tests\Orders_Tests.csproj", "{A18D7D95-DC82-4058-8D6E-2827A75D623D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orders_Tests", "Orders_Tests\Orders_Tests.csproj", "{A18D7D95-DC82-4058-8D6E-2827A75D623D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
