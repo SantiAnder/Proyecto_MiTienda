@@ -1,0 +1,31 @@
+﻿@typeparam Titem
+
+@if(MyList == null)
+{
+    @if(Loading is null)
+    {
+        <div class="d-flex justify-content-center align-items-center">
+            <img src="https://i.pinimg.com/originals/c7/e1/b7/c7e1b7b5753737039e1bdbda578132b8.gif" />
+        </div>
+    }
+    else
+    {
+        @Loading 
+    }
+}
+else if(MyList.Count is 0)
+{
+    @if(NoRecords is null)
+    {
+        <p>No hay registros.</p>
+    }
+    else
+    {
+        @NoRecords
+    }
+}
+else
+{
+    @Body
+}
+

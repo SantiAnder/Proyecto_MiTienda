@@ -3,7 +3,7 @@ using System.Text.Json;
 
 namespace Orders_FrontEnd.Repositorios
 {
-    public class Respository : IRepository
+    public class Repository : IRepository
     {
         private readonly HttpClient _httpClient;
 
@@ -12,13 +12,18 @@ namespace Orders_FrontEnd.Repositorios
             PropertyNameCaseInsensitive = true
         };
 
+        public Repository(HttpClient httpClient)
+        {
+            _httpClient = httpClient;
+        }
+
         public async Task<HttpResponseWrapper<T>> GetAsync<T>(string url)
         {
             var responseHttp = await _httpClient.GetAsync(url);
             if (responseHttp.IsSuccessStatusCode)
             {
                 var response = await UnserializeAnswer<T>(responseHttp);
-                return new HttpResponseWrapper<T>(default, true, responseHttp);
+                return new HttpResponseWrapper<T>(response, false, responseHttp);
             }
             return new HttpResponseWrapper<T>(default, true, responseHttp);
         }
@@ -28,7 +33,7 @@ namespace Orders_FrontEnd.Repositorios
             var messageJson = JsonSerializer.Serialize(model);
             var messageContent = new StringContent(messageJson, Encoding.UTF8, "application/json");
             var responseHttp = await _httpClient.PostAsync(url, messageContent);
-            return new HttpResponseWrapper<object>(null, !responseHttp.IsSuccessStatusCode , responseHttp);
+            return new HttpResponseWrapper<object>(null, !responseHttp.IsSuccessStatusCode, responseHttp);
         }
 
         public async Task<HttpResponseWrapper<TActionResponse>> PostAsync<T, TActionResponse>(string url, T model)
@@ -43,6 +48,7 @@ namespace Orders_FrontEnd.Repositorios
             }
             return new HttpResponseWrapper<TActionResponse>(default, true, responseHttp);
         }
+
         private async Task<T> UnserializeAnswer<T>(HttpResponseMessage responseHttp)
         {
             var response = await responseHttp.Content.ReadAsStringAsync();

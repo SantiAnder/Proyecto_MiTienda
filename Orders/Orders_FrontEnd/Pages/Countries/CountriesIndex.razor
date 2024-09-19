@@ -1,7 +1,38 @@
 ﻿@page "/countries"
 
-<h3>PaisesDelMundo</h3>
+<h3>Paises donde estamos:</h3>
 
-@code {
-  
-}
+<div class="mb-3">
+    <a class="btn btn-primary" href="/countries/createnewcountry">Agregar País</a>
+</div>
+
+<GenericList MyList="ListaDePaises">
+    <Body>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>País</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var pais in ListaDePaises!)
+                {
+                    <tr>
+                        <th>@pais.NamePais</th>
+                        <th>
+                            <a class="btn btn-warning">Editar</a>
+                            <button class="btn btn-danger">Borrar</button>
+                        </th>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+
+    </Body>
+</GenericList>
+
+
+
+
